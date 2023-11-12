@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api_miviajescr", "Api_miviajescr\Api_miviajescr.csproj", "{FA63522F-E76C-43EB-846D-D8BC3039E8EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api_miviajescr.IDataAcces", "Api_miviajescr.IDataAcces\Api_miviajescr.IDataAcces.csproj", "{56C2C1E5-1D3A-48B2-8BA8-1AEAF793ABBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA63522F-E76C-43EB-846D-D8BC3039E8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA63522F-E76C-43EB-846D-D8BC3039E8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA63522F-E76C-43EB-846D-D8BC3039E8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA63522F-E76C-43EB-846D-D8BC3039E8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56C2C1E5-1D3A-48B2-8BA8-1AEAF793ABBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56C2C1E5-1D3A-48B2-8BA8-1AEAF793ABBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56C2C1E5-1D3A-48B2-8BA8-1AEAF793ABBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56C2C1E5-1D3A-48B2-8BA8-1AEAF793ABBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {571DDC7A-2AAB-4DF8-B8E0-0F19755BA4E7}
+	EndGlobalSection
+EndGlobal

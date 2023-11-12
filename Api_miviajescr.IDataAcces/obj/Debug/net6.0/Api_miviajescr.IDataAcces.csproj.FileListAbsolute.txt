@@ -1,0 +1,14 @@
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\bin\Debug\net6.0\Api_miviajescr.IDataAcces.deps.json
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\bin\Debug\net6.0\Api_miviajescr.IDataAcces.runtimeconfig.json
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\bin\Debug\net6.0\Api_miviajescr.IDataAcces.dll
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\bin\Debug\net6.0\Api_miviajescr.IDataAcces.pdb
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.dll
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\refint\Api_miviajescr.IDataAcces.dll
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.pdb
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\Api_miviajescr.IDataAcces.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\Api_miviajescr\Api_miviajescr.IDataAcces\obj\Debug\net6.0\ref\Api_miviajescr.IDataAcces.dll
