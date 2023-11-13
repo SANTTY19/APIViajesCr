@@ -116,7 +116,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Calificac__IdRes__73BA3083");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.CalificacionReservaciones)
+            entity.HasOne(d => d.IdUsuarioNavigation)                   
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Calificac__IdUsu__74AE54BC");
@@ -132,12 +133,14 @@ public partial class EjemploMVCContext : DbContext
             entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.PromedioCalificacion).HasColumnType("decimal(9, 2)");
 
-            entity.HasOne(d => d.IdUsuarioCalificadoNavigation).WithMany(p => p.CalificacionUsuariosIdUsuarioCalificadoNavigation)
+            entity.HasOne(d => d.IdUsuarioCalificadoNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuarioCalificado)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Calificac__IdUsu__778AC167");
 
-            entity.HasOne(d => d.IdUsuarioCalificadorNavigation).WithMany(p => p.CalificacionUsuariosIdUsuarioCalificadorNavigation)
+            entity.HasOne(d => d.IdUsuarioCalificadorNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuarioCalificador)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Calificac__IdUsu__787EE5A0");
@@ -179,7 +182,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Denuncias__IdSta__7F2BE32F");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Denuncias)
+            entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Denuncias__IdUsu__7E37BEF6");
@@ -210,7 +214,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Favoritos__IdInm__412EB0B6");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Favoritos)
+            entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Favoritos__IdUsu__4222D4EF");
@@ -227,7 +232,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Historico__IdRes__6FE99F9F");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.HistoricoLugaresVisitados)
+            entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Historico__IdUsu__70DDC3D8");
@@ -268,7 +274,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Inmuebles__IdTip__3E52440B");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Inmuebles)
+            entity.HasOne(d => d.IdUsuarioNavigation)  
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Inmuebles__IdUsu__3D5E1FD2");
@@ -345,7 +352,8 @@ public partial class EjemploMVCContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Reservaci__IdSta__6754599E");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Reservaciones)
+            entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Reservaci__IdUsu__66603565");

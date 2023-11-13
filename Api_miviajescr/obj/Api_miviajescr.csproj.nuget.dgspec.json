@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr\\Api_miviajescr.csproj": {}
+    "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr\\Api_miviajescr.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj": {
+    "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj",
+        "projectUniqueName": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj",
         "projectName": "Api_miviajescr.IDataAcces",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\obj\\",
+        "projectPath": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj",
+        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -75,20 +75,20 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr\\Api_miviajescr.csproj": {
+    "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr\\Api_miviajescr.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr\\Api_miviajescr.csproj",
+        "projectUniqueName": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr\\Api_miviajescr.csproj",
         "projectName": "Api_miviajescr",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr\\Api_miviajescr.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr\\obj\\",
+        "projectPath": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr\\Api_miviajescr.csproj",
+        "packagesPath": "C:\\Users\\Personal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,8 +104,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Desktop\\Api_miviajescr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj"
+              "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj": {
+                "projectPath": "C:\\Users\\Personal\\Documents\\Sitios Web\\Proyecto\\API_viajes\\APIViajesCr\\Api_miviajescr.IDataAcces\\Api_miviajescr.IDataAcces.csproj"
               }
             }
           }
@@ -126,7 +126,7 @@
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[6.0.23, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
