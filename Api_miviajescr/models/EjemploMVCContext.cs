@@ -133,17 +133,7 @@ public partial class EjemploMVCContext : DbContext
             entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
             entity.Property(e => e.PromedioCalificacion).HasColumnType("decimal(9, 2)");
 
-            entity.HasOne(d => d.IdUsuarioCalificadoNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdUsuarioCalificado)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Calificac__IdUsu__778AC167");
-
-            entity.HasOne(d => d.IdUsuarioCalificadorNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdUsuarioCalificador)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Calificac__IdUsu__787EE5A0");
+            
         });
 
         modelBuilder.Entity<CaracteristicasInmuebles>(entity =>
@@ -154,10 +144,7 @@ public partial class EjemploMVCContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.CaracteristicasInmuebles)
-                .HasForeignKey(d => d.IdInmueble)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Caracteri__IdInm__4AB81AF0");
+           
         });
 
         modelBuilder.Entity<Denuncias>(entity =>
@@ -197,10 +184,7 @@ public partial class EjemploMVCContext : DbContext
             entity.Property(e => e.FechaFin).HasColumnType("date");
             entity.Property(e => e.FechaInicio).HasColumnType("date");
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.DisponibilidadInmuebles)
-                .HasForeignKey(d => d.IdInmueble)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Disponibi__IdInm__4D94879B");
+            
         });
 
         modelBuilder.Entity<Favoritos>(entity =>
@@ -209,16 +193,7 @@ public partial class EjemploMVCContext : DbContext
 
             entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.Favoritos)
-                .HasForeignKey(d => d.IdInmueble)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Favoritos__IdInm__412EB0B6");
-
-            entity.HasOne(d => d.IdUsuarioNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Favoritos__IdUsu__4222D4EF");
+            
         });
 
         modelBuilder.Entity<HistoricoLugaresVisitados>(entity =>
@@ -248,7 +223,8 @@ public partial class EjemploMVCContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.ImagenesInmueble)
+            entity.HasOne(d => d.IdInmuebleNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdInmueble)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ImagenesI__IdInm__44FF419A");
@@ -268,17 +244,7 @@ public partial class EjemploMVCContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdTipoInmuebleNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdTipoInmueble)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Inmuebles__IdTip__3E52440B");
-
-            entity.HasOne(d => d.IdUsuarioNavigation)  
-                .WithMany()
-                .HasForeignKey(d => d.IdUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Inmuebles__IdUsu__3D5E1FD2");
+            
         });
 
         modelBuilder.Entity<Politicas>(entity =>
@@ -342,7 +308,8 @@ public partial class EjemploMVCContext : DbContext
             entity.Property(e => e.MontoDescuento).HasColumnType("money");
             entity.Property(e => e.MontoTotal).HasColumnType("money");
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.Reservaciones)
+            entity.HasOne(d => d.IdInmuebleNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdInmueble)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Reservaci__IdInm__656C112C");
@@ -470,7 +437,8 @@ public partial class EjemploMVCContext : DbContext
                 .HasMaxLength(500)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdInmuebleNavigation).WithMany(p => p.UbicacionInmuebles)
+            entity.HasOne(d => d.IdInmuebleNavigation)
+                .WithMany()
                 .HasForeignKey(d => d.IdInmueble)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Ubicacion__IdInm__47DBAE45");
@@ -497,11 +465,7 @@ public partial class EjemploMVCContext : DbContext
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdTipoUsuarioNavigation)
-                .WithMany()
-                .HasForeignKey(d => d.IdTipoUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Usuarios__IdTipo__38996AB5");
+          
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -11,5 +11,4 @@ public partial class CaracteristicasInmuebles
 
     public string? Descripcion { get; set; }
 
-    public virtual Inmuebles IdInmuebleNavigation { get; set; } = null!;
 }

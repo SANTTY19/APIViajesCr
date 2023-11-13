@@ -15,7 +15,4 @@ public partial class Favoritos
 
     public DateTime FechaCreacion { get; set; }
 
-    public virtual Inmuebles IdInmuebleNavigation { get; set; } = null!;
-
-    public virtual Usuarios IdUsuarioNavigation { get; set; } = null!;
 }

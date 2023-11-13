@@ -496,7 +496,7 @@ public partial class EjemploMVCContext : DbContext
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdTipoUsuarioNavigation).WithMany(p => p.Usuarios)
+            entity.HasOne(d => d.IdTipoUsuarioNavigation).WithMany()
                 .HasForeignKey(d => d.IdTipoUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Usuarios__IdTipo__38996AB5");

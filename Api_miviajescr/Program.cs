@@ -87,10 +87,31 @@ app.MapPost("/TipoInmuebles", async (EjemploMVCContext context, TipoInmuebles ti
 // GET perfiles de usuarios
 app.MapGet("/PerfilesUsuarios", async (EjemploMVCContext context) =>
 {
-    var perfilesUsuarios = await context.Usuarios.ToListAsync();
+    var perfilesUsuarios = await context.Usuarios
+        .Select(u => new
+        {
+            u.IdUsuario,
+            u.IdTipoUsuario,
+            u.Nombre,
+            u.Apellidos,
+            u.FechaNacimiento,
+            u.CorreoElectronico,
+            u.NumeroTelefono,
+            u.Contraseña,
+            u.FotoIdentificacion,
+            u.PromedioCalificacion,
+            u.SesionActiva,
+            u.Token,
+            u.EstaActivo,
+            u.FueValidado,
+            FechaCreacion = u.FechaCreacion.ToString("yyyy-MM-dd")
+        })
+        .ToListAsync();
+
     return Results.Ok(perfilesUsuarios);
 }).Produces(StatusCodes.Status200OK)
 .Produces(StatusCodes.Status500InternalServerError);
+
 
 // POST perfiles publicos
 app.MapPost("/PerfilesUsuarios", async (EjemploMVCContext context, Usuarios usuario) =>
@@ -100,6 +121,14 @@ app.MapPost("/PerfilesUsuarios", async (EjemploMVCContext context, Usuarios usua
         // Establecer propiedades del usuario manualmente (simplificado)
         usuario.FechaCreacion = DateTime.Now;
         usuario.EstaActivo = true;
+
+        // Establecer valores predeterminados
+        usuario.FotoIdentificacion = " ";
+        usuario.PromedioCalificacion = 5;
+        usuario.SesionActiva = true;
+        usuario.Token = "Token01";
+        usuario.EstaActivo = true;
+        usuario.FueValidado = true;
 
         // Puedes ajustar aquí para incluir solo los campos que deseas
         var perfilSimplificado = new
@@ -132,6 +161,7 @@ app.MapPost("/PerfilesUsuarios", async (EjemploMVCContext context, Usuarios usua
     }
 }).Produces(StatusCodes.Status201Created)
 .Produces(StatusCodes.Status400BadRequest);
+
 
 // PUT perfiles publicos
 app.MapPut("/PerfilesUsuarios/{id}", async (EjemploMVCContext context, int id, Usuarios usuarioActualizado) =>
@@ -282,6 +312,188 @@ app.MapPost("/Restricciones", async (EjemploMVCContext context, Restricciones re
 .Produces(StatusCodes.Status400BadRequest);
 
 
+//inmuebles
+
+// Obtener todos los inmuebles
+app.MapGet("/Inmuebles", async (EjemploMVCContext context) =>
+{
+    var inmuebles = await context.Inmuebles.ToListAsync();
+    return Results.Ok(inmuebles);
+}).Produces(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status500InternalServerError);
+
+// Crear un nuevo inmueble
+app.MapPost("/Inmuebles", async (EjemploMVCContext context, Inmuebles nuevoInmueble) =>
+{
+    if (nuevoInmueble != null)
+    {
+        nuevoInmueble.FechaCreacion = DateTime.Now;
+        context.Inmuebles.Add(nuevoInmueble);
+        await context.SaveChangesAsync();
+
+        var response = new
+        {
+            idInmueble = nuevoInmueble.IdInmueble,
+            idUsuario = nuevoInmueble.IdUsuario,
+            idTipoInmueble = nuevoInmueble.IdTipoInmueble,
+            tituloInmueble = nuevoInmueble.TituloInmueble,
+            descripcionInmuebles = nuevoInmueble.DescripcionInmuebles,
+            precioPorNoche = nuevoInmueble.PrecioPorNoche,
+            promedioCalificacion = nuevoInmueble.PromedioCalificacion,
+            estaActivo = nuevoInmueble.EstaActivo,
+            fechaCreacion = nuevoInmueble.FechaCreacion.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+        };
+
+        return Results.Created($"/Inmuebles/{nuevoInmueble.IdInmueble}", response);
+    }
+    else
+    {
+        return Results.BadRequest("Datos de Inmueble no válidos");
+    }
+}).Produces(StatusCodes.Status201Created)
+.Produces(StatusCodes.Status400BadRequest);
+
+// CaracteristicasInmuebles
+
+// Obtener todas las características de inmuebles
+app.MapGet("/CaracteristicasInmuebles", async (EjemploMVCContext context) =>
+{
+    var caracteristicasInmuebles = await context.CaracteristicasInmuebles.ToListAsync();
+    return Results.Ok(caracteristicasInmuebles);
+}).Produces(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status500InternalServerError);
+
+// Crear una nueva característica de inmueble
+app.MapPost("/CaracteristicasInmuebles", async (EjemploMVCContext context, CaracteristicasInmuebles nuevaCaracteristica) =>
+{
+    if (nuevaCaracteristica != null)
+    {
+        context.CaracteristicasInmuebles.Add(nuevaCaracteristica);
+        await context.SaveChangesAsync();
+
+        var response = new
+        {
+            idCaracteristica = nuevaCaracteristica.IdCaracteristica,
+            idInmueble = nuevaCaracteristica.IdInmueble,
+            descripcion = nuevaCaracteristica.Descripcion
+        };
+
+        return Results.Created($"/CaracteristicasInmuebles/{nuevaCaracteristica.IdCaracteristica}", response);
+    }
+    else
+    {
+        return Results.BadRequest("Datos de CaracteristicaInmueble no válidos");
+    }
+}).Produces(StatusCodes.Status201Created)
+.Produces(StatusCodes.Status400BadRequest);
+
+// DisponibilidadInmuebles
+
+// Obtener todas las disponibilidades de inmuebles
+app.MapGet("/DisponibilidadInmuebles", async (EjemploMVCContext context) =>
+{
+    var disponibilidadesInmuebles = await context.DisponibilidadInmuebles.ToListAsync();
+    return Results.Ok(disponibilidadesInmuebles);
+}).Produces(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status500InternalServerError);
+
+// Crear una nueva disponibilidad de inmueble
+app.MapPost("/DisponibilidadInmuebles", async (EjemploMVCContext context, DisponibilidadInmuebles nuevaDisponibilidad) =>
+{
+    if (nuevaDisponibilidad != null)
+    {
+        nuevaDisponibilidad.FechaCreacion = DateTime.Now;
+        context.DisponibilidadInmuebles.Add(nuevaDisponibilidad);
+        await context.SaveChangesAsync();
+
+        var response = new
+        {
+            idDisponibilidad = nuevaDisponibilidad.IdDisponibilidad,
+            idInmueble = nuevaDisponibilidad.IdInmueble,
+            fechaInicio = nuevaDisponibilidad.FechaInicio.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"),
+            fechaFin = nuevaDisponibilidad.FechaFin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"),
+            fechaCreacion = nuevaDisponibilidad.FechaCreacion.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+        };
+
+        return Results.Created($"/DisponibilidadInmuebles/{nuevaDisponibilidad.IdDisponibilidad}", response);
+    }
+    else
+    {
+        return Results.BadRequest("Datos de DisponibilidadInmueble no válidos");
+    }
+}).Produces(StatusCodes.Status201Created)
+.Produces(StatusCodes.Status400BadRequest);
+
+// Obtener todas las calificaciones de usuarios
+app.MapGet("/CalificacionUsuarios", async (EjemploMVCContext context) =>
+{
+    var calificacionesUsuarios = await context.CalificacionUsuarios.ToListAsync();
+    return Results.Ok(calificacionesUsuarios);
+}).Produces(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status500InternalServerError);
+
+// Crear una nueva calificación de usuario
+app.MapPost("/CalificacionUsuarios", async (EjemploMVCContext context, CalificacionUsuarios nuevaCalificacion) =>
+{
+    if (nuevaCalificacion != null)
+    {
+        nuevaCalificacion.FechaCreacion = DateTime.Now;
+        context.CalificacionUsuarios.Add(nuevaCalificacion);
+        await context.SaveChangesAsync();
+
+        var response = new
+        {
+            idCalificacionUsuario = nuevaCalificacion.IdCalificacionUsuario,
+            idUsuarioCalificado = nuevaCalificacion.IdUsuarioCalificado,
+            idUsuarioCalificador = nuevaCalificacion.IdUsuarioCalificador,
+            promedioCalificacion = nuevaCalificacion.PromedioCalificacion,
+            comentarios = nuevaCalificacion.Comentarios,
+            fechaCreacion = nuevaCalificacion.FechaCreacion.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+        };
+
+        return Results.Created($"/CalificacionUsuarios/{nuevaCalificacion.IdCalificacionUsuario}", response);
+    }
+    else
+    {
+        return Results.BadRequest("Datos de CalificacionUsuario no válidos");
+    }
+}).Produces(StatusCodes.Status201Created)
+.Produces(StatusCodes.Status400BadRequest);
+
+// Obtener todos los favoritos
+app.MapGet("/Favoritos", async (EjemploMVCContext context) =>
+{
+    var favoritos = await context.Favoritos.ToListAsync();
+    return Results.Ok(favoritos);
+}).Produces(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status500InternalServerError);
+
+// Crear un nuevo favorito
+app.MapPost("/Favoritos", async (EjemploMVCContext context, Favoritos nuevoFavorito) =>
+{
+    if (nuevoFavorito != null)
+    {
+        nuevoFavorito.FechaCreacion = DateTime.Now;
+        context.Favoritos.Add(nuevoFavorito);
+        await context.SaveChangesAsync();
+
+        var response = new
+        {
+            idFavorito = nuevoFavorito.IdFavorito,
+            idInmueble = nuevoFavorito.IdInmueble,
+            idUsuario = nuevoFavorito.IdUsuario,
+            estaActivo = nuevoFavorito.EstaActivo,
+            fechaCreacion = nuevoFavorito.FechaCreacion.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+        };
+
+        return Results.Created($"/Favoritos/{nuevoFavorito.IdFavorito}", response);
+    }
+    else
+    {
+        return Results.BadRequest("Datos de Favorito no válidos");
+    }
+}).Produces(StatusCodes.Status201Created)
+.Produces(StatusCodes.Status400BadRequest);
 
 
 app.Run();

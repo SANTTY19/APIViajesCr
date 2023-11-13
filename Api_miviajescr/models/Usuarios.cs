@@ -35,7 +35,6 @@ public partial class Usuarios
 
     public DateTime FechaCreacion { get; set; }
 
-    public virtual TipoUsuarios IdTipoUsuarioNavigation { get; set; } = null!;
-
+   
 }
         

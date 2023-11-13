@@ -15,5 +15,4 @@ public partial class DisponibilidadInmuebles
 
     public DateTime FechaCreacion { get; set; }
 
-    public virtual Inmuebles IdInmuebleNavigation { get; set; } = null!;
 }

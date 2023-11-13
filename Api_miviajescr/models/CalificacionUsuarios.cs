@@ -16,8 +16,4 @@ public partial class CalificacionUsuarios
     public string? Comentarios { get; set; }
 
     public DateTime FechaCreacion { get; set; }
-
-    public virtual Usuarios IdUsuarioCalificadoNavigation { get; set; } = null!;
-
-    public virtual Usuarios IdUsuarioCalificadorNavigation { get; set; } = null!;
 }
